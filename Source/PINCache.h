@@ -43,6 +43,11 @@ PIN_SUBCLASSING_RESTRICTED
 @property (readonly) NSUInteger diskByteCount;
 
 /**
+ Synchronously retrieves all items (keys) of the <diskCache> dictionary on the shared disk queue.
+ */
+@property (readonly) NSArray* allCacheItems;
+
+/**
  The underlying disk cache, see <PINDiskCache> for additional configuration and trimming options.
  */
 @property (readonly) PINDiskCache *diskCache;
