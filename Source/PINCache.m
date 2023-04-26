@@ -290,6 +290,19 @@ static NSString * const PINCacheSharedName = @"PINCacheShared";
     return [_memoryCache containsObjectForKey:key] || [_diskCache containsObjectForKey:key];
 }
 
+-(NSArray*)allCacheItems
+{
+    
+    __block NSArray* arrayAllKeys;
+    
+    [_diskCache synchronouslyLockFileAccessWhileExecutingBlock:^(id<PINCaching> diskCache) {
+        arrayAllKeys = ((PINDiskCache *)diskCache).arrayAllCacheItems;
+    }];
+    
+    return arrayAllKeys;
+    
+}
+
 - (nullable id)objectForKey:(NSString *)key
 {
     if (!key)
