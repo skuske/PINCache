@@ -123,6 +123,11 @@ PIN_SUBCLASSING_RESTRICTED
 /// @name Core
 
 /**
+ An array of all keys of the disc cache item dictionary.
+ */
+@property (readonly) NSArray *arrayAllCacheItems;
+
+/**
  The prefix to the name of this cache, used to create a directory under Library/Caches and also appearing in stack traces.
  */
 @property (readonly) NSString *prefix;
