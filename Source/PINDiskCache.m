@@ -216,6 +216,7 @@ static NSURL *_sharedTrashURL;
         
         _byteCount = 0;
         _arrayAllCacheItems=[_metadata allKeys];
+        _dictAllCacheItemsMetadata=[_metadata mutableCopy];
         // 50 MB by default
         _byteLimit = 2000 * 1024 * 1024;
         // 30 days by default
@@ -597,7 +598,8 @@ static NSURL *_sharedTrashURL;
     
         _diskStateKnown = YES;
         pthread_cond_broadcast(&_diskStateKnownCondition);
-        _arrayAllCacheItems=[_metadata allKeys];        
+        _arrayAllCacheItems=[_metadata allKeys];
+        _dictAllCacheItemsMetadata=[_metadata mutableCopy];
     [self unlock];
 }
 
@@ -704,6 +706,7 @@ static NSURL *_sharedTrashURL;
         [_metadata removeObjectForKey:key];
     
         _arrayAllCacheItems=[_metadata allKeys];
+        _dictAllCacheItemsMetadata=[_metadata mutableCopy];
     
         PINDiskCacheObjectBlock didRemoveObjectBlock = _didRemoveObjectBlock;
         if (didRemoveObjectBlock) {
@@ -743,6 +746,7 @@ static NSURL *_sharedTrashURL;
         }
         
         _arrayAllCacheItems=[_metadata allKeys];
+        _dictAllCacheItemsMetadata=[_metadata mutableCopy];
         
     [self unlock];
     
@@ -784,6 +788,7 @@ static NSURL *_sharedTrashURL;
         }
         
         _arrayAllCacheItems=[_metadata allKeys];
+        _dictAllCacheItemsMetadata=[_metadata mutableCopy];
         
     [self unlock];
     
@@ -1272,6 +1277,7 @@ static NSURL *_sharedTrashURL;
         }
         
         _arrayAllCacheItems=[_metadata allKeys];
+        _dictAllCacheItemsMetadata=[_metadata mutableCopy];
         
     [self unlock];
     

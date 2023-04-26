@@ -128,6 +128,11 @@ PIN_SUBCLASSING_RESTRICTED
 @property (readonly) NSArray *arrayAllCacheItems;
 
 /**
+ A dictionary with the metadata of the disc cache items.
+ */
+@property (readonly) NSMutableDictionary *dictAllCacheItemsMetadata;
+
+/**
  The prefix to the name of this cache, used to create a directory under Library/Caches and also appearing in stack traces.
  */
 @property (readonly) NSString *prefix;

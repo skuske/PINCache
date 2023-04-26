@@ -48,6 +48,11 @@ PIN_SUBCLASSING_RESTRICTED
 @property (readonly) NSArray* allCacheItems;
 
 /**
+ Synchronously retrieves all metadata of the <diskCache> on the shared disk queue.
+ */
+@property (readonly) NSMutableDictionary* allCacheItemsMetadata;
+
+/**
  The underlying disk cache, see <PINDiskCache> for additional configuration and trimming options.
  */
 @property (readonly) PINDiskCache *diskCache;

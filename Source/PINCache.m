@@ -303,6 +303,19 @@ static NSString * const PINCacheSharedName = @"PINCacheShared";
     
 }
 
+-(NSMutableDictionary*)allCacheItemsMetadata
+{
+    
+    __block NSMutableDictionary* dictAllCacheItemsMetadata;
+    
+    [_diskCache synchronouslyLockFileAccessWhileExecutingBlock:^(id<PINCaching> diskCache) {
+        dictAllCacheItemsMetadata = ((PINDiskCache *)diskCache).dictAllCacheItemsMetadata;
+    }];
+    
+    return dictAllCacheItemsMetadata;
+    
+}
+
 - (nullable id)objectForKey:(NSString *)key
 {
     if (!key)
