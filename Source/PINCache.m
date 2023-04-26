@@ -4,8 +4,8 @@
 
 #import "PINCache.h"
 
-#if !__has_include (<PINOperation/PINOperation.h>)
-#import "PINOperation.h"
+#if SWIFT_PACKAGE
+@import PINOperation;
 #else
 #import <PINOperation/PINOperation.h>
 #endif
